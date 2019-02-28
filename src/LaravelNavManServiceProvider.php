@@ -21,7 +21,7 @@ use Illuminate\Support\ServiceProvider;
  * Class CrudzServiceProvider
  * @package Smokie\LaravelNavMan
  */
-class LaravelNavManProvider extends ServiceProvider
+class LaravelNavManServiceProvider extends ServiceProvider
 {
     public function boot()
     {
@@ -42,12 +42,14 @@ class LaravelNavManProvider extends ServiceProvider
     {
         $this->app->singleton('navman', function ($app) {
 
+            $path = resource_path(config('navman.filename'));
+
             if (Cache::has(config('navman.cache.key'))) {
                 return collect(Cache::get(config('navman.cache.key')));
             }
 
-            $items = File::exists(config('navman.filename')) ?
-                json_decode(config('navman.filename')) :
+            $items = File::exists($path) ?
+                json_decode($path) :
                 [];
 
             Cache::put(config('navman.cache.key'), $items, config('navman.cache.ttl'));
