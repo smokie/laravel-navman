@@ -1,0 +1,20 @@
+{
+  "name": "taherodeh/laravel-navman",
+  "description": "Artisan Manager for your site's Navigation",
+  "type": "library",
+  "authors": [
+    {
+      "name": "Taher Odeh",
+      "email": "taher@aumix.com"
+    }
+  ],
+  "require": {},
+  "autoload": {
+    "psr-4": {
+      "Smokie\\LaravelNavMan\\Tests\\": "tests/",
+      "Smokie\\LaravelNavMan\\": "src/"
+    }
+  },
+  "require-dev": {
+  }
+}
