@@ -10,6 +10,7 @@ namespace Smokie\LaravelNavMan\Console\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\File;
 
 /**
@@ -58,6 +59,7 @@ abstract class MenuAbstract extends Command
      */
     protected function save(): bool
     {
+        Cache::forget(config('navman.cache.key'));
         return app('files')->put(self::$path, $this->menu->toJson()) > -1;
     }
 
