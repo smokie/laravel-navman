@@ -2,7 +2,7 @@
 
 
 return [
-    'filename' => env('NAVMAN_FILENAME', resource_path('menu.json')),
+    'filename' => env('NAVMAN_FILENAME', 'menu.json'),
 
     'cache' => [
         'key' => env('NAVMAN_CACHE_KEY', '__navman__'),
