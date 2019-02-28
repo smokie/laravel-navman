@@ -49,7 +49,7 @@ class LaravelNavManServiceProvider extends ServiceProvider
             }
 
             $items = File::exists($path) ?
-                json_decode($path) :
+                json_decode(File::get($path)) :
                 [];
 
             Cache::put(config('navman.cache.key'), $items, config('navman.cache.ttl'));
